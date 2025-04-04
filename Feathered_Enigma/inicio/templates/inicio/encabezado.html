@@ -1,0 +1,162 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html lang="en">
+<head>
+    <title>{% block titulo %}{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="{% static 'inicio/css/main.css' %}">
+    <noscript><link rel="stylesheet" href="{% static 'inicio/css/noscript.css' %}"></noscript>
+    <link rel="manifest" href="/manifest.json">
+    {%load pwa%}
+    {%progressive_web_app_meta%}
+
+</head>
+<body class="is-preload landing">
+    <div id="page-wrapper">
+        <header id="header">
+            <h1 id="logo">
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'inicio/images/a.png' %}" alt="Logo" style="vertical-align: middle; height: 30px; margin-right: 10px;">
+                    AMPHRA
+                </a>
+            </h1>
+            <nav id="nav">
+                <ul>
+                    <li><a href="{% url 'home' %}" class="nav-link">HOME</a></li>
+                    <li><a href="{% url 'history' %}" class="nav-link">HISTORIA</a></li>
+                    <li><a href="{% url 'personajes' %}" class="nav-link">PERSONAJES</a></li>
+                    <li><a href="{% url 'mecanicas' %}" class="nav-link">MECANICAS</a></li>
+                    <li><a href="{% url 'contact' %}" class="nav-link">CONTACTANOS</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        {% block contenido %}{% endblock %}
+
+        <footer id="footer">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <p class="copyright"><a  onclick="mostrarAviso()">Aviso de cache</a></p>
+                </div>
+                <div class="amphra">
+                    <p>AMPHRA © 2025</p>
+                </div>
+                <div class="footer-right">
+                    <img src="{% static 'inicio/images/esrb.png' %}" alt="Image 1" class="footer-img">
+                    <img src="{% static 'inicio/images/c.jpg' %}" alt="Image 2" class="footer-img2">
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modal de Aviso -->
+    <div id="modalAviso" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8);">
+        <div style="background-color:#222; color:white; margin:15% auto; padding:20px; border-radius:10px; width:80%; max-width:400px; text-align:center; box-shadow: 0 0 15px rgba(0,0,0,0.5); font-family: Arial, sans-serif;">
+            <h2 style="color:white; font-size:18px; margin-bottom:10px;">Aviso de Caché</h2>
+            <p style="color:white; font-size:14px;">Este sitio utiliza cookies para mejorar la experiencia del usuario. Al continuar navegando, aceptas su uso.</p>
+            <button onclick="document.getElementById('modalAviso').style.display='none'" style="margin-top:15px; padding:8px 20px; background-color:#555; color:white; border:none; border-radius:5px; font-size:14px;">Aceptar</button>
+        </div>
+    </div>
+
+    <!-- Script para mostrar/cerrar modal -->
+    <script>
+        function mostrarAviso() {
+            document.getElementById("modalAviso").style.display = "block";
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById("modalAviso");
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+    <!-- Estilos footer responsivo -->
+    <style>
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .footer-left {
+            flex: 1;
+            text-align: left;
+        }
+
+        .amphra {
+            flex: 1;
+            text-align: center;
+            font-weight: bold;
+            font-family: 'n' !important;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .footer-right {
+            flex: 1;
+            text-align: right;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .footer-img {
+            height: 60px;
+            margin-left: 10px;
+        }
+
+        .footer-img2 {
+            height: 70px;
+            margin-left: 10px;
+            margin-right: 100px;
+        }
+
+        @media (max-width: 720px) {
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-left, .footer-right {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+            .footer-right {
+                justify-content: center;
+                margin-top: 0px;
+            }
+            .footer-right img {
+                margin: 0 5px;
+            }
+            .amphra {
+                margin-bottom: 5px;
+            }
+        }
+
+        @media (max-width: 412px) {
+            .footer-img { height: 50px; }
+            .footer-img2 { height: 60px; }
+        }
+
+        @media (max-width: 480px) {
+            .amphra { font-size: 14px; margin-bottom: 0; }
+        }
+    </style>
+
+    <!-- Scripts existentes -->
+    <script src="{% static 'inicio/js/jquery.min.js' %}"></script>
+    <script src="{% static 'inicio/js/jquery.scrolly.min.js' %}"></script>
+    <script src="{% static 'inicio/js/jquery.dropotron.min.js' %}"></script>
+    <script src="{% static 'inicio/js/jquery.scrollex.min.js' %}"></script>
+    <script src="{% static 'inicio/js/browser.min.js' %}"></script>
+    <script src="{% static 'inicio/js/breakpoints.min.js' %}"></script>
+    <script src="{% static 'inicio/js/util.js' %}"></script>
+    <script src="{% static 'inicio/js/main.js' %}"></script>
+</body>
+</html>
