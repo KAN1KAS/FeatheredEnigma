@@ -1,0 +1,164 @@
+{% extends "inicio/encabezado.html" %}
+
+{% load static %}
+
+{% block titulo %} HISTORY {% endblock %}
+
+<link rel="manifest" href="/manifest.json">
+    {%load pwa%}
+    {%progressive_web_app_meta%}
+
+{% block contenido %}
+
+<section id="history">
+    <div class="container">
+        <!-- Imagen -->
+        <figure class="image-container">
+            <img src="{% static 'inicio/images/f.png' %}" alt="Historia del protagonista" />
+        </figure>
+
+        <!-- Contenido narrativo -->
+        <article class="text-container">
+            <p>En una tranquila aldea de gallinas, donde la vida seguía su curso con calma, un joven pollo crecía bajo la protección de su familia, sin imaginar que todo estaba a punto de cambiar.</p>
+
+            <p>Una noche fatídica, el rugido del fuego y el estruendo de la destrucción rompieron la quietud del pueblo. Un ataque brutal lo consumió todo en cuestión de minutos. Lo que antes era un hogar se convirtió en cenizas y silencio. Cuando el humo se disipó, no quedaba nada, salvo restos carbonizados y el eco de un pasado que se desvanecía.</p>
+
+            <p>Entre las ruinas, un joven pollo se alzó, confundido y solo. Su familia había sido asesinada. Su padre, desaparecido sin dejar rastro. Sin respuestas, sin un destino claro, pero con muchas preguntas de lo que había pasado, decidió emprender un viaje que lo llevaría más allá de cualquier límite que hubiera conocido.</p>
+
+            <p>El mundo que lo espera no es amable. Más allá de su aldea, los caminos son traicioneros, los territorios inhóspitos y los peligros innumerables. No hay garantías, no hay refugio, solo desafíos que lo pondrán a prueba una y otra vez. La única opción es avanzar. Con cada paso, se adentra más en lo desconocido, enfrentando obstáculos que exigirán su máxima habilidad y resistencia.</p>
+
+            <p>Las respuestas pueden estar al final del camino, pero llegar hasta allí no será fácil. No hay certezas, solo un destino incierto y una verdad que lo espera en algún lugar, oculta tras cada peligro que lo separa de ella.</p>
+
+            <p class="highlight-text">¿ESTÁS LISTO PARA ENFRENTAR AL VERDADERO CULPABLE?</p>
+        </article>
+    </div>
+</section>
+
+<!-- Estilos responsivos -->
+<style>
+    /* Estilos generales */
+    #history {
+        padding: 20px;
+        background-color: black;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin-top: 60px;
+    }
+
+    .container {
+        max-width: 1200px;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 20px;
+        justify-content: center;
+        text-align: center; /* Centrar texto en móviles */
+    }
+
+    .image-container {
+        flex: 1;
+        min-width: 250px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .image-container img {
+        width: 100%;
+        max-width: 200px;
+        height: auto;
+        border-radius: 10px;
+        display: block;
+        margin: 0 auto 80px auto; /* Se mantiene solo en web */
+    }
+
+    .text-container {
+        flex: 2.5;
+        min-width: 450px;
+        text-align: justify;
+        padding: 14px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 12.5px !important;
+        line-height: 1.6;
+        text-transform: uppercase;
+        border-radius: 10px;
+    }
+
+    .highlight-text {
+        font-weight: bold;
+        font-size: 18px;
+        text-align: center;
+        color: #ffcc00;
+    }
+
+    /* Tablet */
+    @media (max-width: 1024px) {
+        .container {
+            flex-direction: column;
+        }
+
+        .text-container {
+            min-width: 100%;
+            padding: 20px;
+        }
+
+        .image-container img {
+            max-width: 140px;
+            margin-bottom: 0; /* Se elimina el espacio en móviles */
+        }
+    }
+
+    /* Celulares */
+    @media (max-width: 600px) {
+        #history {
+            padding: 10px;
+        }
+
+        .image-container img {
+            max-width: 120px;
+            margin-bottom: 0;
+        }
+
+        .text-container {
+            font-size: 11px;
+            line-height: 1.4;
+            padding: 15px;
+        }
+
+        .highlight-text {
+            font-size: 16px;
+        }
+    }
+
+    /* Celulares pequeños */
+    @media (max-width: 400px) {
+        .image-container img {
+            max-width: 100px;
+            margin-bottom: 0;
+        }
+
+        .text-container {
+            font-size: 10px;
+            padding: 10px;
+        }
+    }
+
+    /* Ajuste exclusivo para dispositivos de 375px */
+    @media (max-width: 375px) {
+        .image-container img {
+            max-width: 100px;
+            margin-bottom: 0 !important; /* Evita que se vea afectado */
+        }
+
+        .text-container {
+            font-size: 10px;
+            padding: 10px;
+        }
+    }
+</style>
+
+{% endblock %}

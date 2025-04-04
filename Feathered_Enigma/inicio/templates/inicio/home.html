@@ -1,0 +1,254 @@
+{% extends "inicio/encabezado.html" %}
+
+{% load static %}
+
+{% block titulo %} HOME {% endblock %}
+
+<link rel="manifest" href="/manifest.json">
+    {%load pwa%}
+    {%progressive_web_app_meta%}
+
+{% block contenido %}
+<style>
+    @font-face {
+        font-family: 'fuente';
+        src: url('{% static "inicio/webfonts/font.ttf" %}') format('opentype');
+    }
+
+    /* Asegurar que el fondo sea completamente negro */
+    body, html {
+        background-color: black !important;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+
+    /* Sección principal con fondo negro */
+    #one {
+        position: relative;
+        text-align: center;
+        background-color: black;
+        padding: 50px 0;
+        height: 100vh; /* Ocupar toda la pantalla */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Imagen de fondo tenue */
+    #one .image.fit.main img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        opacity: 0.1; /* Suaviza la imagen de fondo */
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Contenedor del texto y la imagen */
+    .overlay-text {
+        position: absolute;
+        display: flex;
+        flex-wrap: nowrap; /* Evita que se desplacen a otra línea */
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        max-width: 1200px;
+        text-align: left;
+        z-index: 2;
+        padding: 0 20px;
+        gap: 80px; /* Espaciado entre texto y la imagen */
+    }
+
+    /* Contenedor de "Feathered Enigma" */
+    .text-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* Alinear hacia la izquierda */
+    }
+
+    /* Texto con efecto 3D y fuente personalizada */
+    .text-3d {
+        font-size: 120px ;
+        text-transform: uppercase;
+        color: white;
+        font-weight: bold;
+        font-family: 'fuente', sans-serif; /* Aplicar la fuente personalizada */
+        text-shadow: 
+            5px 5px 0px #444, 
+            10px 10px 0px #222, 
+            15px 15px 0px black;
+    }
+
+    /* Separación entre "FEATHERED" y "ENIGMA" */
+    .feathered {
+        margin-bottom: 100px; /* Espaciado ajustado entre las palabras */
+    }
+
+    /* Estilo dorado para "Enigma" */
+    .gold {
+        color: gold;
+        font-family: 'fuente', sans-serif; /* Aplicar la fuente personalizada */
+        text-shadow: 
+            5px 5px 0px #aa8800, 
+            10px 10px 0px #776600, 
+            15px 15px 0px #443300;
+    }
+
+    /* Signo de interrogación como imagen */
+    .question-mark img {
+        width: 180px; /* Ajustar el tamaño de la imagen */
+        height: auto;
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        text-shadow: 
+            6px 6px 0px #666, 
+            12px 12px 0px #333, 
+            18px 18px 0px black;
+    }
+
+    /* RESPONSIVE DESIGN */
+
+    /* Pantallas grandes (mayores a 1440px) */
+    @media (min-width: 1440px) {
+        .text-3d {
+            font-size: 130px; /* Reducir un poco el tamaño */
+        }
+        .feathered {
+            margin-bottom: 50px; /* Reducir margen entre "FEATHERED" y "ENIGMA" */
+        }
+        .question-mark img {
+            width: 120px; /* Hacer la imagen más pequeña */
+        }
+        .overlay-text {
+            gap: 20px; /* Reducir el espacio entre la imagen y el texto */
+        }
+    }
+
+    @media (min-width: 1366px) {
+        .text-3d {
+            font-size: 130px; /* Reducir un poco el tamaño */
+        }
+        .feathered {
+            margin-bottom: 90px; /* Reducir margen entre "FEATHERED" y "ENIGMA" */
+        }
+        .question-mark img {
+            width: 150px; /* Hacer la imagen más pequeña */
+        }
+        .overlay-text {
+            gap: 50px; /* Reducir el espacio entre la imagen y el texto */
+        }
+    }
+
+    /* Tablets y pantallas medianas */
+    @media (max-width: 1280px) {
+        .text-3d {
+            font-size: 150px; /* Reducir tamaño de texto en tablets */
+        }
+        .feathered {
+            margin-bottom: 100px; /* Reducir margen entre "FEATHERED" y "ENIGMA"  */
+        }
+        .question-mark img {
+            width: 150px; /* Reducir tamaño de la imagen en tablets */
+        }
+        .overlay-text {
+            gap: 60px; /* Reducir aún más la separación */
+            padding: 0 15px; /* Ajuste de margen para tablets */
+        }
+    }
+
+    /* Tablets y pantallas medianas */
+    @media (max-width: 1024px) {
+        .text-3d {
+            font-size: 120px; /* Reducir tamaño de texto en tablets */
+        }
+        .feathered {
+            margin-bottom: 80px; /* Reducir margen entre "FEATHERED" y "ENIGMA"  */
+        }
+        .question-mark img {
+            width: 140px; /* Reducir tamaño de la imagen en tablets */
+        }
+        .overlay-text {
+            gap: 60px; /* Reducir aún más la separación */
+            padding: 0 15px; /* Ajuste de margen para tablets */
+        }
+    }
+
+    /* Dispositivos móviles */
+    @media (max-width: 768px) {
+        .overlay-text {
+            align-items: center;
+            text-align: center;
+            gap: 50px; /* Espacio entre texto e imagen */
+        }
+        .text-3d {
+            font-size: 100px; /* Reducir más el tamaño del texto */
+        }
+        .feathered {
+            margin-bottom: 60px; /* Menos espacio entre las palabras */
+        }
+        .question-mark img {
+            width: 120px; /* Reducir tamaño de la imagen en móviles */
+            margin-left: 0; /* Eliminar margen en móviles */
+        }
+    }
+
+    /* Móviles pequeños (menos de 540px) */
+    @media (max-width: 540px) {
+        .text-3d {
+            font-size: 70px; /* Reducir más el texto en pantallas pequeñas */
+        }
+        .feathered {
+            margin-bottom: 50px; /* Menos espacio entre las palabras */
+        }
+        .question-mark img {
+            width: 100px; /* Ajustar tamaño de la imagen en pantallas pequeñas */
+        }
+        .overlay-text {
+            gap: 50px;
+            padding: 0 10px; /* Ajuste de margen para pantallas muy pequeñas */
+        }
+    }
+
+    /* Móviles pequeños (menos de 480px) */
+    @media (max-width: 480px) {
+        .text-3d {
+            font-size: 60px; /* Reducir más el texto en pantallas pequeñas */
+        }
+        .feathered {
+            margin-bottom: 30px; /* Menos espacio entre las palabras */
+        }
+        .question-mark img {
+            width: 60px; /* Ajustar tamaño de la imagen en pantallas pequeñas */
+        }
+        .overlay-text {
+            flex-direction: column; /* Apilar los elementos en móviles */
+            gap: 30px;
+            padding: 0 10px; /* Ajuste de margen para pantallas muy pequeñas */
+        }
+    }
+</style>
+
+<section id="one">
+    <div class="overlay-text">
+        <div class="text-container">
+            <span class="text-3d feathered">FEATHERED</span>
+            <span class="text-3d gold">ENIGMA</span>
+        </div>
+        <div class="question-mark">
+            <img src="{% static 'inicio/images/f.png' %}" alt="?" /> 
+        </div>
+    </div>
+
+</section>
+
+
+
+
+{% endblock %}

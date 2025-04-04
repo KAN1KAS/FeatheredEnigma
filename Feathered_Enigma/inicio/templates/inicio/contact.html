@@ -1,0 +1,228 @@
+{% extends "inicio/encabezado.html" %}
+{% load static %}
+
+{% block titulo %} CONTACTANOS {% endblock %}
+
+<link rel="manifest" href="/manifest.json">
+    {%load pwa%}
+    {%progressive_web_app_meta%}
+    
+{% block contenido %}
+
+<div id="main" class="wrapper style1">
+  <div class="container">
+    <header class="major">
+      <h2>¿Listo para dejar tu huella en <span class="fe-title">Feathered Enigma</span>?</h2>
+      <p>Valoramos tu opinión.</p>
+    </header>
+
+    <section class="app-info">
+      <p class="app-description">
+        Descarga la aplicación oficial de 
+        <strong class="fe-title">Feathered Enigma</strong> 
+        y cuéntanos tu experiencia.
+      </p>
+      <a href="{% static 'inicio/apk/app-debug.apk' %}" class="button primary" download="Feathered_Enigma.apk">
+        APK-<span class="fe-title">Feathered Enigma</span>
+      </a>      
+    </section>
+
+    <footer class="team-info">
+      <h3>Nosotros somos AMPHRA</h3>
+      <p><strong>Un equipo comprometido con brindarte una experiencia agradable.</strong></p>
+
+      <div class="team-members">
+        <div class="member">
+          <img src="{% static 'inicio/images/u.png' %}" alt="Abigail Alejo Pineda" class="member-img">
+          <p class="member-name">Abigail Alejo Pineda</p>
+          <div class="member-info">
+            <h3 class="member-role"><strong>Desarrolladora y Diseñadora</strong></h3>
+            <p class="member-description">Responsable de la integración visual y funcional de la aplicación móvil, sitio web y el videojuego, enfocándose en una experiencia coherente y atractiva.</p>
+          </div>
+        </div>
+        <div class="member">
+          <img src="{% static 'inicio/images/u.png' %}" alt="Pablo Ivan Alcantar Tamayo" class="member-img">
+          <p class="member-name">Pablo Iván Alcantar Tamayo</p>
+          <div class="member-info">
+            <h3 class="member-role"><strong>Desarrollador y Analista</strong></h3>
+            <p class="member-description">Especializado en el diseño de interfaces y la lógica del sistema, centrado en optimizar la experiencia del usuario mediante soluciones tecnológicas intuitivas.</p>
+          </div>
+        </div>
+        <div class="member">
+          <img src="{% static 'inicio/images/u.png' %}" alt="Martín Ulises Gómez Castro" class="member-img">
+          <p class="member-name">Martín Ulises Gómez Castro</p>
+          <div class="member-info">
+            <h3 class="member-role"><strong>Desarrollador y Tester</strong></h3>
+            <p class="member-description">Encargado de la construcción narrativa y artística del juego, desarrollando escenarios y personajes que enriquecen la inmersión del jugador.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<style>
+
+  @font-face {
+    font-family: 'fuente';
+    src: url('{% static "inicio/webfonts/font.ttf" %}') format('opentype');
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .fe-title {
+    font-family: 'fuente', sans-serif !important;
+  }
+
+  #main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+
+  .button.primary {
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 15px;
+    width: 300px !important;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background-color 0.3s;
+    margin: 0 auto;
+    border: 2px solid yellow; /* Borde amarillo */
+  }
+
+  .button.primary:hover {
+    background-color: rgba(0, 0, 0, 0);
+    opacity: 0.8;
+  }
+
+  .container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 40px;
+    border-radius: 10px;
+  }
+
+  .major {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+
+  .app-info {
+    text-align: center;
+    margin: 30px 0;
+  }
+
+  .app-description {
+    text-align: center; /* Centrado del texto */
+    max-width: 600px;
+    margin: 0 auto 20px auto;
+    font-size: 18px;
+  }
+
+  .team-info {
+    text-align: center;
+    font-size: 16px;
+    margin-top: 50px;
+  }
+
+  .team-info h3 {
+    font-size: 22px;
+    font-weight: 100px;
+    margin-bottom: 15px;
+  }
+
+  .team-members {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 30px;
+  }
+
+  .member {
+    text-align: center;
+    width: 280px;
+    padding: 20px;
+    border-radius: 15px;
+    background: #333;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+  }
+
+  .member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+  }
+
+  .member-img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+  }
+
+  .member-name {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: rgb(255, 255, 255);
+  }
+
+  .member-info {
+    text-align: justify;
+    font-size: 14px;
+    margin-top: 10px;
+    line-height: 1.6;
+    padding: 0 10px;
+  }
+
+  .member-role {
+    font-size: 15px !important;
+    margin-top: 0px !important;
+    margin-bottom: 10px !important;
+    text-align:center;
+    color: rgb(255, 255, 255);
+  }
+
+  @media (max-width: 767px) {
+    .team-members {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .button.primary {
+      width: 90% !important;
+      padding: 10px;
+      text-align: center;
+      font-size: 16px !important;
+    }
+
+    .member {
+      width: 100%;
+    }
+
+    .member-info {
+      text-align: left;
+      padding: 0 15px;
+    }
+  }
+</style>
+
+{% endblock %}

@@ -1,0 +1,108 @@
+{% extends "inicio/encabezado.html" %}
+
+{% load static %}
+
+{% block titulo %} MECANICAS {% endblock %}
+
+<link rel="manifest" href="/manifest.json">
+    {%load pwa%}
+    {%progressive_web_app_meta%}
+    
+{% block contenido %}
+
+<section id="four" class="wrapper style1 special fade-up">
+    <div class="container">
+        <header class="major" style="font-family: 'Poppins', sans-serif; margin-top: 30px; letter-spacing: 1px; font-size: 12px; text-align: center;">
+            <h3 style="color: white;">ÍTEMS</h3>
+        </header>
+        <div class="box alt">
+            <div class="row gtr-uniform" style="display: flex; justify-content: space-evenly; flex-wrap: wrap;">
+                <!-- Item 1 -->
+                <section class="col-3 col-6-medium col-12-xsmall" style="text-align: center; margin-bottom: 10px;">
+                    <img src="{% static 'inicio/images/maíz.png' %}" class="major" style="width: 160px; height: 160px;">
+                    <h3 style="font-family: 'Poppins', sans-serif; font-size: 16px; margin-top: 5px; color: #FFD700; font-weight: bold;">MAÍZ</h3>
+                    <p style="font-family: 'Poppins', sans-serif; font-size: 14px; color: #FFF; margin-bottom: 5px; text-align: justify;">Al tocar el maíz y desaparecer sumaras puntos a tu marcador. Recolecta varios para obtener la mayor cantidad de puntos </p>
+                </section>
+
+                <!-- Item 2 (Corazón centrado) -->
+                <section class="col-3 col-6-medium col-12-xsmall" style="text-align: center; margin-bottom: 10px;">
+                    <img src="{% static 'inicio/images/co.jpg' %}" class="major" style="width: 160px; height: 160px; margin-left: auto; margin-right: auto;">
+                    <h3 style="font-family: 'Poppins', sans-serif; font-size: 16px; margin-top: 5px; color: #FFD700; font-weight: bold;">CORAZÓN</h3>
+                    <p style="font-family: 'Poppins', sans-serif; font-size: 14px; color: #FFF; margin-bottom: 5px; text-align: justify;">Al tocarlo, el corazón restaura parte de tu vida, dandote mas oportunidad de llegar al final</p>
+                </section>
+
+                <!-- Item 3 (Pez centrado) -->
+                <section class="col-3 col-6-medium col-12-xsmall" style="text-align: center; margin-bottom: 10px;">
+                    <img src="{% static 'inicio/images/p.png' %}" class="major" style="width: 160px; height: 160px; margin-left: auto; margin-right: auto;">
+                    <h3 style="font-family: 'Poppins', sans-serif; font-size: 16px; margin-top: 5px; color: #FFD700; font-weight: bold;">PEZ</h3>
+                    <p style="font-family: 'Poppins', sans-serif; font-size: 14px; color: #FFF; margin-bottom: 5px; text-align: justify;">Al tocarlo ganas puntos extras, encentralo y se uno de los jugadores con mas puntos!</p>
+                </section>
+
+                <!-- Item 4 -->
+                <section class="col-3 col-6-medium col-12-xsmall" style="text-align: center; margin-bottom: 10px;">
+                    <img src="{% static 'inicio/images/fin.png' %}" class="major" style="width: 160px; height: 160px;">
+                    <h3 style="font-family: 'Poppins', sans-serif; font-size: 16px; margin-top: 5px; color: #FFD700; font-weight: bold;">ENIGMA</h3>
+                    <p style="font-family: 'Poppins', sans-serif; font-size: 14px; color: #FFF; margin-bottom: 5px; text-align: justify;">Símbolo flotante que señala la transacción a un nuevo nivel. Al tocarlo, el destino es incierto, pero quienes se atrevan a cruzarlo encontraran la verdad.</p>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="four" class="wrapper style1 special fade-up" style="margin-top: -100px;">
+    <div class="container">
+        <header class="major" style="font-family: 'Poppins', sans-serif; letter-spacing: 1px; font-size: 12px; text-align: center; margin-top: 10px; margin-bottom: 50px;">
+            <h3 style="color: white;">CONTROLES</h3>
+        </header>
+        <div class="box alt">
+            <div class="row gtr-uniform" style="display: flex; justify-content: flex-start; flex-wrap: wrap;"> <!-- Controls aligned to the left -->
+                <!-- Control 1 -->
+                <section class="col-3 col-6-medium col-12-xsmall" style="text-align: center; margin-bottom: 10px;">
+                    <img src="{% static 'inicio/images/t_b.png' %}" class="major" style="width: 160px; height: 160px; object-fit: cover; display: block; margin: 0 auto;">
+                    <h3 style="font-family: 'Poppins', sans-serif; font-size: 14px; margin-top: 10px; color: #FFD700; font-weight: bold;">BARRA ESPACIADORA</h3>
+                    <p style="font-family: 'Poppins', sans-serif; font-size: 14px; color: #FFF; margin-bottom: 5px; text-align: center;">Usa la barra espaciadora para saltar</p>
+                </section>
+        
+                <!-- Control 2 -->
+                <section class="col-3 col-6-medium col-12-xsmall" style="text-align: center; margin-bottom: 10px;">
+                    <img src="{% static 'inicio/images/t_d.png' %}" class="major" style="width: 160px; height: 160px; object-fit: cover; display: block; margin: 0 auto;">
+                    <h3 style="font-family: 'Poppins', sans-serif; font-size: 14px; margin-top: 10px; color: #FFD700; font-weight: bold;">TECLA D</h3>
+                    <p style="font-family: 'Poppins', sans-serif; font-size: 14px; color: #FFF; margin-bottom: 5px; text-align: center;">Usa la tecla D para moverte a la izquierda</p>
+                </section>
+        
+                <!-- Control 3 -->
+                <section class="col-3 col-6-medium col-12-xsmall" style="text-align: center; margin-bottom: 10px;">
+                    <img src="{% static 'inicio/images/t_a.png' %}" class="major" style="width: 160px; height: 160px; object-fit: cover; display: block; margin: 0 auto;">
+                    <h3 style="font-family: 'Poppins', sans-serif; font-size: 14px; margin-top: 10px; color: #FFD700; font-weight: bold;">TECLA A</h3>
+                    <p style="font-family: 'Poppins', sans-serif; font-size: 14px; color: #FFF; margin-bottom: 5px; text-align: center;">Usa la tecla A para moverte a la izquierda</p>
+                </section>
+
+                <!-- Control 4 -->
+                <section class="col-3 col-6-medium col-12-xsmall" style="text-align: center; margin-bottom: 10px;">
+                    <img src="{% static 'inicio/images/t_k.png' %}" class="major" style="width: 160px; height: 160px; object-fit: cover; display: block; margin: 0 auto;">
+                    <h3 style="font-family: 'Poppins', sans-serif; font-size: 14px; margin-top: 10px; color: #FFD700; font-weight: bold;">TECLA K</h3>
+                    <p style="font-family: 'Poppins', sans-serif; font-size: 14px; color: #FFF; margin-bottom: 5px; text-align: center;">Usa la tecla K para disparar balas de maíz al enemigo final</p>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+<style>
+    @media only screen and (max-width: 768px) {
+        .col-3 {
+            margin: 10px 0; /* Add margin to items for mobile */
+        }
+        .container {
+            margin: 20px; /* Add more margin to the container for mobile */
+        }
+        .box.alt {
+            padding: 20px; /* Add padding to box for better spacing */
+        }
+        .row.gtr-uniform {
+            justify-content: center; /* Center all items in mobile */
+        }
+    }
+</style>
